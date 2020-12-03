@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/lister-client/static/css/main.2217905f.chunk.css",
+    "main.js": "/lister-client/static/js/main.47707b43.chunk.js",
+    "main.js.map": "/lister-client/static/js/main.47707b43.chunk.js.map",
+    "runtime-main.js": "/lister-client/static/js/runtime-main.26111a60.js",
+    "runtime-main.js.map": "/lister-client/static/js/runtime-main.26111a60.js.map",
+    "static/js/2.9400c24f.chunk.js": "/lister-client/static/js/2.9400c24f.chunk.js",
+    "static/js/2.9400c24f.chunk.js.map": "/lister-client/static/js/2.9400c24f.chunk.js.map",
+    "index.html": "/lister-client/index.html",
+    "precache-manifest.4b14651cfa2d5bc23300219b5e6b0c45.js": "/lister-client/precache-manifest.4b14651cfa2d5bc23300219b5e6b0c45.js",
+    "service-worker.js": "/lister-client/service-worker.js",
+    "static/css/main.2217905f.chunk.css.map": "/lister-client/static/css/main.2217905f.chunk.css.map",
+    "static/js/2.9400c24f.chunk.js.LICENSE.txt": "/lister-client/static/js/2.9400c24f.chunk.js.LICENSE.txt",
+    "static/media/add.svg": "/lister-client/static/media/add.34280c59.svg",
+    "static/media/hamburger.svg": "/lister-client/static/media/hamburger.78aa51f7.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.26111a60.js",
+    "static/js/2.9400c24f.chunk.js",
+    "static/css/main.2217905f.chunk.css",
+    "static/js/main.47707b43.chunk.js"
+  ]
+}
