@@ -21,7 +21,6 @@ function App() {
 
   // Gets the username of the user to display in the header bar
   function getUsername() {
-    getTime()
     if (user !== null) {
       return user.username
     }
