@@ -13,7 +13,7 @@ function Login({ setUser }) {
     e.preventDefault()
     const form = e.target
     const data = new FormData(form)
-    fetch('/login', {
+    fetch('https://lister-server.herokuapp.com/login', {
      method: 'POST',
      body: data,
     })
