@@ -17,6 +17,7 @@ function Login({ setUser }) {
     fetch('https://lister-server.herokuapp.com/login', {
      method: 'POST',
      body: data,
+     credentials: 'include'
     })
     .then( res => res.json() )
     .then( user => {

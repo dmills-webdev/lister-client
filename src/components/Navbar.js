@@ -12,7 +12,9 @@ function NavbarLoggedIn({ user, setUser }) {
   const { REACT_APP_API } = process.env
   // Log current user out
   function logout() {
-    fetch(`${REACT_APP_API}/logout`)
+    fetch('https://lister-server.herokuapp.com/logout', {
+      credentials: 'include'
+    })
     .then( setUser(null) )
   }
   return (

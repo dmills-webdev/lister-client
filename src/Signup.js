@@ -44,7 +44,7 @@ function Signup() {
       const data = new FormData(form)
       await fetch('https://lister-server.herokuapp.com/signup', {
        method: 'POST',
-       body: data,
+       body: data
       })
       .then( res => res.json() )
       .then( submitAccepted => {
