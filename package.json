@@ -27,7 +27,6 @@
     "scss": "node-sass --watch ./src/scss/ -o ./src/css",
     "coding": "parallelshell 'npm run scss' 'npm run start'"
   },
-  "proxy": "https://lister-server.herokuapp.com",
   "eslintConfig": {
     "extends": "react-app"
   },

@@ -42,7 +42,7 @@ function Signup() {
     if ( isSubmissionValid === true )  {
       const form = e.target
       const data = new FormData(form)
-      await fetch(`${REACT_APP_API}/signup`, {
+      await fetch('https://lister-server.herokuapp.com/signup', {
        method: 'POST',
        body: data,
       })
