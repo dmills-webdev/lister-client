@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom"
 import './scss/Signup.scss'
 
 function Signup() {
+  const { REACT_APP_API } = process.env
   const history = useHistory()
 
 // String content of the submit button which varies if there are errors in the inputs that need to be fixed before the form can be submitted
@@ -41,7 +42,7 @@ function Signup() {
     if ( isSubmissionValid === true )  {
       const form = e.target
       const data = new FormData(form)
-      await fetch('/signup', {
+      await fetch(`${REACT_APP_API}/signup`, {
        method: 'POST',
        body: data,
       })

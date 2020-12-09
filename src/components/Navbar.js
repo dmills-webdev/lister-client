@@ -9,9 +9,10 @@ function toggleMenu(e) {
 }
 
 function NavbarLoggedIn({ user, setUser }) {
+  const { REACT_APP_API } = process.env
   // Log current user out
   function logout() {
-    fetch('/logout')
+    fetch(`${REACT_APP_API}/logout`)
     .then( setUser(null) )
   }
   return (

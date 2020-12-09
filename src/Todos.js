@@ -6,6 +6,7 @@ import NewTodoForm from './components/NewTodoForm'
 import './scss/Todos.scss'
 
 function Todos({ user }) {
+  const { REACT_APP_API } = process.env
 // Default single todo to display to unregsitered or brand new users
   const defaultTodos = [{
     id: 0,
@@ -19,7 +20,7 @@ function Todos({ user }) {
   useEffect(() => {
     // If locally the user seems to be logged in then fetch their todos
     if (user !== null) {
-      fetch('/api/todos')
+      fetch(`${REACT_APP_API}/api/todos`)
         .then(res => res.json())
         .then(todos => {
           if ( Array.isArray(todos) && ( (todos[0]&&todos[0].id!==0) || todos[1]) )  { // Use database todos unless problem with array
@@ -37,7 +38,7 @@ function Todos({ user }) {
 // Update users todo storage when modified
   useEffect(() => {
     if (user !== null) { // Check if user appears logged in, if so then PUT the updated todos to the database
-      fetch('api/todos', {
+      fetch(`${REACT_APP_API}/api/todos`, {
         method: 'PUT',
         body: JSON.stringify({todos}),
         headers: { 'Content-Type': 'application/json' }
