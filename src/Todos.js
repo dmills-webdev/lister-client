@@ -22,6 +22,7 @@ function Todos({ user }) {
     if (user !== null) {
       fetch('https://lister-server.herokuapp.com/todos', {
         method: 'GET',
+        credentials: 'include',
       })
         .then(res => res.json())
         .then(todos => {
@@ -43,6 +44,7 @@ function Todos({ user }) {
       fetch('https://lister-server.herokuapp.com/todos', {
         method: 'PUT',
         body: JSON.stringify({todos}),
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' }
       })
       .then( res => res.json() )
