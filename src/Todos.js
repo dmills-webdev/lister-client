@@ -24,12 +24,15 @@ function Todos({ user }) {
         method: 'GET',
         credentials: 'include'
       })
-        .then(res => res.json())
-        .then(todos => {
-          if ( Array.isArray(todos) && ( (todos[0]&&todos[0].id!==0) || todos[1]) )  { // Use database todos unless problem with array
-            modifyTodos(todos)
-          }
-        })
+      .then( res => res.json() )
+      .then( todos => {
+        if ( Array.isArray(todos) && ( (todos[0]&&todos[0].id!==0) || todos[1]) )  { // Use database todos unless problem with array
+          modifyTodos(todos)
+        }
+      })
+      .catch((error) => {
+        console.error('GET FAILED Error message:', error)
+      })
     }
     // If user does not seem to be logged in locally then default back to the defaultTodos
     else {
@@ -45,14 +48,16 @@ function Todos({ user }) {
         method: 'PUT',
         body: JSON.stringify({todos}),
         credentials: 'include',
-        headers: { 'Content-Type': 'application/json' }
+        headers: {
+          'Content-Type': 'application/json'
+        }
       })
       .then( res => res.json() )
       .then( data => {
         console.log('Success:', data)
       })
       .catch((error) => {
-        console.error('Error:', error)
+        console.error('PUT FAILED Error message:', error)
       })
     }
   }, [todos])
