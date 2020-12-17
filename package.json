@@ -1,6 +1,6 @@
 {
-  "name": "todo",
-  "homepage": "https://lister-dmwd.netlify.app/",
+  "name": "Lister",
+  "homepage": "https://lister-dmwd.netlify.app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

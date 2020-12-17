@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter, NavLink, Route } from 'react-router-dom'
 
 import Signup from './Signup'
@@ -12,6 +12,24 @@ import hamburger from './assets/hamburger.svg'
 function App() {
   // App's local record if a user appears logged in or not, passed to Navbar
   const [ user, setUser ] = useState(null)
+
+  // Check if a user token is in localStorage, if so then try and use it to login
+  // If token login fails then
+  useEffect(() => {
+    if ( localStorage.getItem('listerToken') ) {
+      fetch('https://lister-server.herokuapp.com/token-login', {
+       method: 'POST',
+       headers: {
+        'Authorization' : `Bearer ${localStorage.getItem('listerToken')}`
+       }
+      })
+      .then( res => res.json() )
+      .then( username => {
+          setUser(username)
+      })
+      .catch( console.log('Error logging in with JWT') )
+    }
+  }, [])
 
   // Toggles dropdown menu visibility change on mobile site
   function toggleMenu(e) {

@@ -20,13 +20,15 @@ function Login({ setUser }) {
      credentials: 'include'
     })
     .then( res => res.json() )
-    .then( user => {
-      if (user === false ) {
+    .then( data => {
+      if (data === false ) {
         displayFormErrorMessage()
         displayErrorBox()
       }
       else {
-        setUser(user)
+        window.localStorage.setItem('listerToken', data.token.toString() )
+        setUser(data.username)
+        console.log(data.token)
         history.push('/')
       }
     })

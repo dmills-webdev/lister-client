@@ -16,11 +16,12 @@ function NavbarLoggedIn({ user, setUser }) {
       credentials: 'include'
     })
     .then( setUser(null) )
+    .then( window.localStorage.removeItem('listerToken') )
   }
   return (
     <nav id='main-nav'>
       <div className='nav-user'>
-        {user.username}
+        {user}
       </div>
       <div className='nav-button' onClick={logout}>
         Logout
