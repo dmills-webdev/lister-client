@@ -16,7 +16,7 @@ function App() {
   // Check if a user token is in localStorage, if so then try and use it to login
   // If token login fails then
   useEffect(() => {
-    if ( localStorage.getItem('listerToken') ) {
+    if ( (user === null) && localStorage.getItem('listerToken') ) {
       fetch('https://lister-server.herokuapp.com/token-login', {
        method: 'POST',
        headers: {
@@ -25,7 +25,7 @@ function App() {
       })
       .then( res => res.json() )
       .then( username => {
-          setUser(username)
+        setUser(username)
       })
       .catch( console.log('Error logging in with JWT') )
     }

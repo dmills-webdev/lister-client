@@ -18,8 +18,8 @@ function Todos({ user }) {
 
 // Load user's todos
   useEffect(() => {
-    // If locally the user seems to be logged in then fetch their todos
-    if ( user !== null ) {
+    // If a login token is set then try and use it to GET the users stored todos
+    if ( localStorage.getItem('listerToken') ) {
       fetch('https://lister-server.herokuapp.com/todos', {
         method: 'GET',
         headers: {
@@ -32,8 +32,8 @@ function Todos({ user }) {
           modifyTodos(todos)
         }
       })
-      .catch((error) => {
-        modifyTodos(defaultTodos)
+      .catch( error  => {
+        console.log(error)
       })
     }
     // If user does not seem to be logged in locally then default back to the defaultTodos
@@ -45,7 +45,8 @@ function Todos({ user }) {
 
 // Update users todo storage when modified
   useEffect(() => {
-    if (user !== null) { // Check if user appears logged in, if so then PUT the updated todos to the database
+    // If a login token is set then try and use it to PUT the updated todos to the database
+    if ( localStorage.getItem('listerToken') ) {
       fetch('https://lister-server.herokuapp.com/todos', {
         method: 'PUT',
         body: JSON.stringify({todos}),
@@ -54,12 +55,8 @@ function Todos({ user }) {
           'Content-Type': 'application/json'
         }
       })
-      .then( res => res.json() )
-      .then( data => {
-        console.log('Success:', data)
-      })
-      .catch((error) => {
-        console.error('PUT FAILED')
+      .catch( error => {
+        console.log(error)
       })
     }
   }, [todos])

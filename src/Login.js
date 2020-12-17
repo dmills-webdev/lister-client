@@ -28,7 +28,6 @@ function Login({ setUser }) {
       else {
         window.localStorage.setItem('listerToken', data.token.toString() )
         setUser(data.username)
-        console.log(data.token)
         history.push('/')
       }
     })
