@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Lister
+
+Lister is a minimalist full-stack todo/list app. User's can create accounts allowing for data persistence accross sessions and multiple devices. It uses Javascript and React on the frontend with a Node/Express backend connected to a MongoDB Atlas database. 
+
+---------------------------------------
 
 ## Available Scripts
 
