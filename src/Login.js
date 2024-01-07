@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom'
 import './scss/Login.scss'
 
 function Login({ setUser }) {
-  const { REACT_APP_API } = process.env
   const history = useHistory()
 
   const [ submitText, modifySubmitText ] = useState('Login')
@@ -14,7 +13,7 @@ function Login({ setUser }) {
     e.preventDefault()
     const form = e.target
     const data = new FormData(form)
-    fetch('https://lister-server.herokuapp.com/login', {
+    fetch( process.env.REACT_APP_BACKEND_URL + 'login', {
      method: 'POST',
      body: data,
      credentials: 'include'

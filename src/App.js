@@ -17,7 +17,7 @@ function App() {
   // If token login fails then
   useEffect(() => {
     if ( (user === null) && localStorage.getItem('listerToken') ) {
-      fetch('https://lister-server.herokuapp.com/token-login', {
+      fetch( process.env.REACT_APP_BACKEND_URL + 'token-login', {
        method: 'POST',
        headers: {
         'Authorization' : `Bearer ${localStorage.getItem('listerToken')}`

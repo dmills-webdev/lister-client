@@ -6,7 +6,6 @@ import NewTodoForm from './components/NewTodoForm'
 import './scss/Todos.scss'
 
 function Todos({ user }) {
-  const { REACT_APP_API } = process.env
 // Default single todo to display to unregsitered or brand new users
   const defaultTodos = [{
     id: 0,
@@ -20,7 +19,7 @@ function Todos({ user }) {
   useEffect(() => {
     // If a login token is set then try and use it to GET the users stored todos
     if ( localStorage.getItem('listerToken') ) {
-      fetch('https://lister-server.herokuapp.com/todos', {
+      fetch( process.env.REACT_APP_BACKEND_URL + 'todos', {
         method: 'GET',
         headers: {
          'Authorization' : `Bearer ${localStorage.getItem('listerToken')}`
@@ -47,7 +46,7 @@ function Todos({ user }) {
   useEffect(() => {
     // If a login token is set then try and use it to PUT the updated todos to the database
     if ( localStorage.getItem('listerToken') ) {
-      fetch('https://lister-server.herokuapp.com/todos', {
+      fetch( process.env.REACT_APP_BACKEND_URL + 'todos', {
         method: 'PUT',
         body: JSON.stringify({todos}),
         headers: {
