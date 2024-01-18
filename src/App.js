@@ -29,7 +29,7 @@ function App() {
       })
       .catch( console.log('Error logging in with JWT') )
     }
-  }, [])
+  }, [user])
 
   // Toggles dropdown menu visibility change on mobile site
   function toggleMenu(e) {

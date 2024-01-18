@@ -5,19 +5,22 @@ import NewTodoForm from './components/NewTodoForm'
 
 import './scss/Todos.scss'
 
-function Todos({ user }) {
-// Default single todo to display to unregsitered or brand new users
-  const defaultTodos = [{
-    id: 0,
-    task: 'Write first todo (or list item!)',
-    completed: false
-  }]
-  const [ todos, modifyTodos ] = useState(defaultTodos)
 
+// Default single todo to display to unregsitered or brand new users
+const defaultTodos = [{
+  id: 0,
+  task: 'Write first todo (or list item!)',
+  completed: false
+}]
+
+function Todos({ user }) {
+
+  const [ todos, modifyTodos ] = useState(defaultTodos)
 
 // Load user's todos
   useEffect(() => {
-    // If a login token is set then try and use it to GET the users stored todos
+    
+    /* If a login token is set then try and use it to GET the users stored todos */
     if ( localStorage.getItem('listerToken') ) {
       fetch( process.env.REACT_APP_BACKEND_URL + 'todos', {
         method: 'GET',
@@ -35,9 +38,10 @@ function Todos({ user }) {
         console.log(error)
       })
     }
-    // If user does not seem to be logged in locally then default back to the defaultTodos
+
+    /* If user does not seem to be logged in locally then default back to the defaultTodos */
     else {
-      modifyTodos(defaultTodos)
+      modifyTodos( [...defaultTodos] )
     }
   }, [user])
 

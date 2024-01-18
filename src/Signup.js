@@ -82,7 +82,7 @@ function Signup() {
     document.getElementById('form-container').classList.add('shrink-width')
 
     const errorBox = document.getElementById('error-box')
-    validationErrors.map(item => {
+    validationErrors.forEach(item => {
       let errorItem = document.createElement('div')
       errorItem.textContent = item
       errorBox.appendChild(errorItem)

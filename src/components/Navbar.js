@@ -11,7 +11,7 @@ function toggleMenu(e) {
 function NavbarLoggedIn({ user, setUser }) {
   // Log current user out
   function logout() {
-    fetch( process.env.REACT_APP_BACKEND_URL +  + '/logout', {
+    fetch( process.env.REACT_APP_BACKEND_URL + 'logout', {
       credentials: 'include'
     })
     .then( setUser(null) )
